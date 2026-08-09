@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============ SEO ============ -->
+    <title>Soban Ahmad | Web Developer</title>
+    <meta name="description" content="Soban Ahmad — Web Developer crafting modern, responsive and user-friendly websites with HTML, CSS, JavaScript, Bootstrap and jQuery.">
+    <meta name="keywords" content="Soban Ahmad, Web Developer, Frontend Developer, HTML, CSS, JavaScript, Bootstrap, jQuery, Portfolio">
+    <meta name="author" content="Soban Ahmad">
+    <meta name="robots" content="index, follow">
+
+    <!-- ============ Open Graph ============ -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Soban Ahmad | Web Developer">
+    <meta property="og:description" content="Modern, responsive and user-friendly web experiences built with HTML, CSS, JavaScript, Bootstrap and jQuery.">
+    <meta property="og:image" content="images/profile.jpg">
+    <meta name="theme-color" content="#050816">
+
+    <!-- ============ Structured data (JSON-LD) ============ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Soban Ahmad",
+        "jobTitle": "Web Developer",
+        "description": "Web Developer crafting modern, responsive and user-friendly websites with HTML, CSS, JavaScript, Bootstrap and jQuery.",
+        "url": "https://www.linkedin.com/in/soban-ahmad-95b350426",
+        "sameAs": ["https://www.linkedin.com/in/soban-ahmad-95b350426"],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "Bootstrap", "jQuery", "Responsive Design"]
+    }
+    </script>
+
+    <!-- Favicon (inline SVG, no extra file needed) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B82F6'/%3E%3Cstop offset='.5' stop-color='%238B5CF6'/%3E%3Cstop offset='1' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230B1120'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='bold' text-anchor='middle' fill='url(%23g)'%3ES%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" aria-hidden="true">
+        <span id="scrollBar"></span>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- 1. PREMIUM LOADING SCREEN                                     -->
+    <!-- ============================================================= -->
+    <div class="loader" id="loader" role="status" aria-label="Loading website">
+        <div class="loader-glow" aria-hidden="true"></div>
+
+        <div class="loader-inner">
+            <!-- floating particles behind the text -->
+            <div class="loader-particles" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="loader-name-wrap">
+                <h1 class="loader-name" aria-label="Soban Ahmad">
+                    <span class="loader-type" id="loaderType"></span>
+                    <span class="loader-caret" aria-hidden="true"></span>
+                    <span class="loader-name-shine" aria-hidden="true"></span>
+                </h1>
+            </div>
+
+            <p class="loader-role">WEB DEVELOPER</p>
+
+            <div class="loader-track" aria-hidden="true">
+                <span class="loader-fill" id="loaderFill"></span>
+                <span class="loader-shine" aria-hidden="true"></span>
+            </div>
+
+            <p class="loader-percent" id="loaderPercent">LOADING 0%</p>
+            <p class="loader-status" id="loaderStatus" aria-hidden="true">INITIALIZING</p>
+        </div>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- ANIMATED BACKGROUND (fixed behind everything)                 -->
+    <!-- ============================================================= -->
+    <div class="bg-fx" aria-hidden="true">
+        <div class="bg-grid"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="particles" id="bgParticles"></div>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- CUSTOM CURSOR                                                 -->
+    <!-- ============================================================= -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- ============================================================= -->
+    <!-- 2. NAVBAR                                                     -->
+    <!-- ============================================================= -->
+    <nav class="navbar navbar-expand-lg main-nav fixed-top" id="mainNav" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand nav-logo" href="#home">
+                <span class="logo-mark" aria-hidden="true">
+                    <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="navLogoGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#60a5fa"/>
+                                <stop offset=".5" stop-color="#a78bfa"/>
+                                <stop offset="1" stop-color="#22d3ee"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M9.6 5.5 4.6 12l5 6.5" stroke="url(#navLogoGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.8 4.5 13.2 19.5" stroke="url(#navLogoGrad)" stroke-width="2.4" stroke-linecap="round"/>
+                        <path d="m14.4 5.5 5 6.5-5 6.5" stroke="url(#navLogoGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-shine"></span>
+                </span>
+                <span class="logo-text">
+                    <span class="logo-name">SOBAN AHMAD</span>
+                    <span class="logo-role">WEB DEVELOPER</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav nav-menu">
+                    <li class="nav-item"><a class="nav-link active" href="#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">PROJECTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">SKILLS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">CONTACT US</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-glow btn-nav-hire">HIRE ME</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ============================================================= -->
+        <!-- 3. HERO / HOME                                                -->
+        <!-- ============================================================= -->
+        <header class="hero" id="home">
+            <div class="container">
+                <div class="row align-items-center hero-row">
+
+                    <!-- Left: intro text -->
+                    <div class="col-lg-6 hero-content">
+                        <p class="hero-greeting reveal" data-delay="0">
+                            <span class="greet-line" aria-hidden="true"></span>
+                            <span class="greet-text">HI, I'M</span>
+                        </p>
+
+                        <h1 class="hero-name" id="heroName">SOBAN AHMAD</h1>
+
+                        <h2 class="hero-role"><span class="role-text gradient-text" id="roleText">WEB DEVELOPER</span></h2>
+
+                        <p class="hero-desc reveal" data-delay="200">
+                            I create modern, responsive and user-friendly web experiences using
+                            <span class="hl">HTML</span>, <span class="hl">CSS</span>,
+                            <span class="hl">JavaScript</span>, <span class="hl">Bootstrap</span>
+                            and <span class="hl">jQuery</span>.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-primary btn-shine reveal" data-delay="350">HIRE ME</a>
+                            <a href="#projects" class="btn btn-outline btn-shine-soft reveal" data-delay="450">VIEW MY PROJECTS</a>
+                            <a href="cv/Soban-Ahmad-CV.pdf" download="Soban-Ahmad-CV.pdf"
+                                class="btn btn-outline btn-shine-soft reveal" data-delay="550">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                                DOWNLOAD MY CV
+                            </a>
+                        </div>
+
+                        <div class="hero-social reveal" data-delay="700">
+                            <a href="https://github.com/soban2602a" target="_blank" rel="noopener" class="social-icon sc-github" aria-label="GitHub profile" title="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 2.5-.34c.85 0 1.7.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/soban-ahmad-95b350426" target="_blank" rel="noopener" class="social-icon sc-linkedin" aria-label="LinkedIn profile" title="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.05h4.56V23H.22V8.05zM8.34 8.05h4.37v2.04h.06c.61-1.16 2.11-2.38 4.34-2.38 4.64 0 5.5 3.05 5.5 7.02V23h-4.55v-7.47c0-1.78-.03-4.07-2.48-4.07-2.48 0-2.86 1.94-2.86 3.94V23H8.34V8.05z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: profile image -->
+                    <div class="col-lg-6 hero-visual">
+                        <div class="hero-deco-circle deco-1" aria-hidden="true"></div>
+                        <div class="hero-deco-circle deco-2" aria-hidden="true"></div>
+
+                        <!-- floating developer elements -->
+                        <div class="float-chip chip-html" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 4.5 3.7 18 12 22l8.3-4L22 4.5 12 2zm3.2 6.8h-6l.2 2h5.6l-.6 6.5L12 18l-2.4-1 .2-2H7.6l-.4 4.4L12 20.8l4.8-1.4.9-9.6h-8.7l-.2-2h9.8l.4 2z"/></svg>
+                        </div>
+                        <div class="float-chip chip-css" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 4.5 3.7 18 12 22l8.3-4L22 4.5 12 2zm1.5 5.5h-6l.2 2h5.6l-.5 5.2L12 16.7l-2.6-.9.2-1.8H7.7l-.4 3.6 4.7 1.7 4.8-1.7.6-6.9H7.5l.3-2.2h8.9l.3 2.2z" opacity=".65"/></svg>
+                        </div>
+                        <div class="float-chip chip-js" aria-hidden="true">&lt;JS/&gt;</div>
+                        <div class="float-chip chip-code" aria-hidden="true">{ }</div>
+
+                        <!-- orbiting rings -->
+                        <div class="orbit orbit-1" aria-hidden="true"></div>
+                        <div class="orbit orbit-2" aria-hidden="true"></div>
+
+                        <!-- profile image with 3D tilt -->
+                        <div class="hero-img-wrap tilt" id="heroImgWrap">
+                            <div class="hero-img-ring" aria-hidden="true"></div>
+                            <img src="./images/profile.png" alt="Soban Ahmad — Web Developer profile picture"
+                                class="hero-img" id="heroImg" width="835" height="1030" fetchpriority="high" decoding="async">
+                            <div class="hero-text-spinner" aria-hidden="true">
+                                <svg viewBox="0 0 100 100">
+                                    <defs>
+                                        <path id="spinPath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/>
+                                    </defs>
+                                    <text>
+                                        <textPath href="#spinPath">OPEN TO WORK • WEB DEVELOPER</textPath>
+                                    </text>
+                                </svg>
+                            </div>
+                            <div class="hero-img-badge" aria-hidden="true">
+                                <span class="badge-dot"></span> OPEN TO WORK
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- scroll indicator -->
+                <a href="#projects" class="scroll-indicator" aria-label="Scroll down to projects">
+                    <span class="si-text">SCROLL DOWN</span>
+                    <span class="si-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="m6 14 6 6 6-6"/></svg>
+                    </span>
+                </a>
+            </div>
+        </header>
+
+        <!-- ============================================================= -->
+        <!-- 4. PROJECTS                                                   -->
+        <!-- ============================================================= -->
+        <section class="section projects-section" id="projects" aria-labelledby="projectsTitle">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">PORTFOLIO</span>
+                    <h2 class="section-title" id="projectsTitle">MY <span class="gradient-text">PROJECTS</span></h2>
+                    <p class="section-sub">Some of my recent work</p>
+                </div>
+
+                <div class="filter-bar reveal" data-delay="100">
+                    <button type="button" class="filter-btn active" data-filter="all">ALL</button>
+                    <button type="button" class="filter-btn" data-filter="landing">LANDING PAGE</button>
+                    <button type="button" class="filter-btn" data-filter="dashboard">DASHBOARD</button>
+                    <button type="button" class="filter-btn" data-filter="portfolio">PORTFOLIO</button>
+                </div>
+
+                <div class="row g-4 project-grid">
+
+                    <!-- Project 1 -->
+                    <div class="col-md-6 col-lg-4 reveal project-col" data-category="landing" data-delay="0">
+                        <article class="project-card" data-index="0" tabindex="0" aria-label="Project 1 — Brightworld LED Lights">
+                            <div class="project-media">
+                                <img src="images/BRIGHTWORLD-LED-LIGHTS.png" alt="Brightworld LED Lights project preview" class="project-img" loading="lazy" width="900" height="640">
+                                <div class="project-overlay">
+                                    <span class="overlay-hint">CLICK TO VIEW</span>
+                                    <span class="overlay-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <span class="project-number">PROJECT 01</span>
+                                <h3 class="project-title">BRIGHTWORLD-LED-LIGHTS</h3>
+                                <p class="project-desc">A bright and modern LED lights website with a clean, responsive and user-friendly layout.</p>
+                                <p class="project-tech">HTML • CSS • Bootstrap • JavaScript</p>
+                                <div class="project-links">
+                                    <a href="https://soban2602a.github.io/BRIGHTWORLD-LED-LIGHTS/" target="_blank" rel="noopener" class="btn btn-mini btn-glow project-demo" aria-label="Open live demo of Brightworld LED Lights">LIVE DEMO</a>
+                                    <a href="https://github.com/soban2602a/BRIGHTWORLD-LED-LIGHTS.git" target="_blank" rel="noopener" class="btn btn-mini btn-outline project-github" aria-label="View Brightworld LED Lights on GitHub">GITHUB</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="col-md-6 col-lg-4 reveal project-col" data-category="dashboard" data-delay="150">
+                        <article class="project-card" data-index="1" tabindex="0" aria-label="Project 2 — Infinity Watches">
+                            <div class="project-media">
+                                <img src="images/infinity-watches.png" alt="Infinity Watches project preview" class="project-img" loading="lazy" width="900" height="640">
+                                <div class="project-overlay">
+                                    <span class="overlay-hint">CLICK TO VIEW</span>
+                                    <span class="overlay-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <span class="project-number">PROJECT 02</span>
+                                <h3 class="project-title">INFINITY-WATCHES</h3>
+                                <p class="project-desc">A luxury watches website with an elegant, responsive design and a premium shopping experience.</p>
+                                <p class="project-tech">HTML • CSS • JavaScript • Bootstrap</p>
+                                <div class="project-links">
+                                    <a href="https://soban2602a.github.io/infinity-watches/" target="_blank" rel="noopener" class="btn btn-mini btn-glow project-demo" aria-label="Open live demo of Infinity Watches">LIVE DEMO</a>
+                                    <a href="https://github.com/soban2602a/infinity-watches.git" target="_blank" rel="noopener" class="btn btn-mini btn-outline project-github" aria-label="View Infinity Watches on GitHub">GITHUB</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="col-md-6 col-lg-4 reveal project-col" data-category="portfolio" data-delay="300">
+                        <article class="project-card" data-index="2" tabindex="0" aria-label="Project 3 — BrewNest Coffee Shop">
+                            <div class="project-media">
+                                <img src="images/brewnest.png" alt="BrewNest Coffee Shop project preview" class="project-img" loading="lazy" width="900" height="640">
+                                <div class="project-overlay">
+                                    <span class="overlay-hint">CLICK TO VIEW</span>
+                                    <span class="overlay-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <span class="project-number">PROJECT 03</span>
+                                <h3 class="project-title">BREWNEST</h3>
+                                <p class="project-desc">A coffee shop website with a custom loader, order/cart system and smooth animations.</p>
+                                <p class="project-tech">HTML • CSS • jQuery • Bootstrap</p>
+                                <div class="project-links">
+                                    <a href="https://soban2602a.github.io/brewnest/" target="_blank" rel="noopener" class="btn btn-mini btn-glow project-demo" aria-label="Open live demo of BrewNest Coffee Shop">LIVE DEMO</a>
+                                    <a href="https://github.com/soban2602a/brewnest.git" target="_blank" rel="noopener" class="btn btn-mini btn-outline project-github" aria-label="View BrewNest Coffee Shop on GitHub">GITHUB</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- 5. SKILLS                                                     -->
+        <!-- ============================================================= -->
+        <section class="section skills-section" id="skills" aria-labelledby="skillsTitle">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">EXPERTISE</span>
+                    <h2 class="section-title" id="skillsTitle">MY <span class="gradient-text">SKILLS</span></h2>
+                    <p class="section-sub">Technologies I build with</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 reveal" data-delay="0">
+                        <div class="skill-card">
+                            <div class="skill-head">
+                                <span class="skill-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 4.5 3.7 18 12 22l8.3-4L22 4.5 12 2zm3.2 6.8h-6l.2 2h5.6l-.6 6.5L12 18l-2.4-1 .2-2H7.6l-.4 4.4L12 20.8l4.8-1.4.9-9.6h-8.7l-.2-2h9.8l.4 2z"/></svg>
+                                </span>
+                                <div class="skill-meta">
+                                    <h3 class="skill-name">HTML5</h3>
+                                    <span class="skill-level">Semantic structure</span>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="progress skill-progress" role="progressbar" aria-label="HTML5 skill level"
+                                aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" data-progress="90">
+                                <div class="progress-bar">
+                                    <span class="bar-shine" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal" data-delay="100">
+                        <div class="skill-card">
+                            <div class="skill-head">
+                                <span class="skill-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 4.5 3.7 18 12 22l8.3-4L22 4.5 12 2zm1.5 5.5h-6l.2 2h5.6l-.5 5.2L12 16.7l-2.6-.9.2-1.8H7.7l-.4 3.6 4.7 1.7 4.8-1.7.6-6.9H7.5l.3-2.2h8.9l.3 2.2z"/></svg>
+                                </span>
+                                <div class="skill-meta">
+                                    <h3 class="skill-name">CSS3</h3>
+                                    <span class="skill-level">Modern layouts</span>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="progress skill-progress" role="progressbar" aria-label="CSS3 skill level"
+                                aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" data-progress="85">
+                                <div class="progress-bar">
+                                    <span class="bar-shine" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal" data-delay="200">
+                        <div class="skill-card">
+                            <div class="skill-head">
+                                <span class="skill-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 9 2 3-2 3M12 15h4"/></svg>
+                                </span>
+                                <div class="skill-meta">
+                                    <h3 class="skill-name">JavaScript</h3>
+                                    <span class="skill-level">Interactions</span>
+                                </div>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="progress skill-progress" role="progressbar" aria-label="JavaScript skill level"
+                                aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" data-progress="70">
+                                <div class="progress-bar">
+                                    <span class="bar-shine" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal" data-delay="300">
+                        <div class="skill-card">
+                            <div class="skill-head">
+                                <span class="skill-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.3 2.1 2.8 3.6l.7 14.6 7.8 3.7 7.9-3.7.7-14.6-8.6-1.5zm5 6.1H8.6l.2 2.4h7.8l-.5 6.1-4.6 1.4-4.6-1.4-.3-3h2.3l.1 1.7 2.5.7 2.5-.7.2-3.4h-8L7.8 6h8.4l.1 2.2z"/></svg>
+                                </span>
+                                <div class="skill-meta">
+                                    <h3 class="skill-name">Bootstrap</h3>
+                                    <span class="skill-level">Responsive UI</span>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="progress skill-progress" role="progressbar" aria-label="Bootstrap skill level"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" data-progress="80">
+                                <div class="progress-bar">
+                                    <span class="bar-shine" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal" data-delay="400">
+                        <div class="skill-card">
+                            <div class="skill-head">
+                                <span class="skill-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 15.6c.6.3 1.9.7 3 .7 1.5 0 2.4-.8 2.4-1.9 0-2.6-5.6-1.3-5.6-4.3 0-1.1.9-1.9 2.4-1.9 1.2 0 2.2.4 2.9.8l-.4 1.5c-.5-.3-1.4-.6-2.3-.6-1.4 0-2 .7-2 1.6 0 2.3 5.6 1.1 5.6 4.4 0 1.2-1 2.1-2.6 2.1-1.2 0-2.5-.5-3.2-1L9 15.6z"/><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h16V4H4z"/></svg>
+                                </span>
+                                <div class="skill-meta">
+                                    <h3 class="skill-name">jQuery</h3>
+                                    <span class="skill-level">DOM &amp; AJAX</span>
+                                </div>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="progress skill-progress" role="progressbar" aria-label="jQuery skill level"
+                                aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" data-progress="70">
+                                <div class="progress-bar">
+                                    <span class="bar-shine" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- neutral stats -->
+                    <div class="col-md-6 reveal" data-delay="500">
+                        <div class="skill-note">
+                            <span class="skill-note-icon" aria-hidden="true">&#10024;</span>
+                            <p>Still learning, building new projects every day and always exploring better ways to write clean code.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- counter strip -->
+                <div class="stats-row reveal" data-delay="100">
+                    <div class="stat-item">
+                        <span class="stat-num"><span class="counter" data-target="5">0</span></span>
+                        <span class="stat-label">TECHNOLOGIES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num"><span class="counter" data-target="100">0</span>%</span>
+                        <span class="stat-label">RESPONSIVE FOCUS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num grad-text">∞</span>
+                        <span class="stat-label">LEARNING EVERY DAY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- 5.5 TECH MARQUEE                                              -->
+        <!-- ============================================================= -->
+        <div class="tech-marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="mq-group">
+                    <span class="mq-item">HTML5</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">CSS3</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">JAVASCRIPT</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">BOOTSTRAP</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">JQUERY</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">RESPONSIVE DESIGN</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">UI / UX</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">CLEAN CODE</span><span class="mq-sep">✦</span>
+                </div>
+                <div class="mq-group">
+                    <span class="mq-item">HTML5</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">CSS3</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">JAVASCRIPT</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">BOOTSTRAP</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">JQUERY</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">RESPONSIVE DESIGN</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">UI / UX</span><span class="mq-sep">✦</span>
+                    <span class="mq-item">CLEAN CODE</span><span class="mq-sep">✦</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- 6. ABOUT US                                                   -->
+        <!-- ============================================================= -->
+        <section class="section about-section" id="about" aria-labelledby="aboutTitle">
+            <div class="container">
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-5 reveal-left" data-delay="0">
+                        <div class="about-visual">
+                            <div class="about-frame" aria-hidden="true"></div>
+                        <div class="about-img-wrap reveal" data-anim="scale">
+                            <img src="./images/profile.png" alt="Soban Ahmad working as a Web Developer" class="about-img" loading="lazy" width="640" height="640">
+                        </div>
+                            <div class="about-badge" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v6c0 5-3.8 8.5-9 9-5.2-.5-9-4-9-9V7l9-5z"/><path d="m9 12 2 2 4-4"/></svg>
+                                PASSION FOR WEB
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 reveal-right" data-delay="100">
+                        <div class="section-head text-start">
+                            <span class="section-tag">WHO I AM</span>
+                            <h2 class="section-title" id="aboutTitle">ABOUT <span class="gradient-text">ME</span></h2>
+                        </div>
+
+                        <p class="about-text">
+                            Hi, I'm <strong>Soban Ahmad</strong>, a Web Developer focused on building
+                            modern, responsive and user-friendly websites.
+                        </p>
+                        <p class="about-text">
+                            I am currently developing my skills in <strong>HTML</strong>, <strong>CSS</strong>,
+                            <strong>JavaScript</strong>, <strong>Bootstrap</strong> and <strong>jQuery</strong>.
+                        </p>
+                        <p class="about-text">
+                            I enjoy learning new techniques, creating beautiful interfaces and turning
+                            ideas into functional websites.
+                        </p>
+
+                        <ul class="about-points">
+                            <li class="reveal" data-delay="200"><span class="pt-check" aria-hidden="true">✓</span> Clean, semantic &amp; well-structured code</li>
+                            <li class="reveal" data-delay="300"><span class="pt-check" aria-hidden="true">✓</span> Mobile-first responsive design</li>
+                            <li class="reveal" data-delay="400"><span class="pt-check" aria-hidden="true">✓</span> Modern, animated &amp; premium UI</li>
+                        </ul>
+
+                        <a href="cv/Soban-Ahmad-CV.pdf" download="Soban-Ahmad-CV.pdf"
+                            class="btn btn-primary btn-shine reveal" data-delay="500">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                            DOWNLOAD CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- 7. CONTACT US                                                 -->
+        <!-- ============================================================= -->
+        <section class="section contact-section" id="contact" aria-labelledby="contactTitle">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">GET IN TOUCH</span>
+                    <h2 class="section-title" id="contactTitle">CONTACT <span class="gradient-text">ME</span></h2>
+                    <p class="section-sub">Have a project in mind? Let's work together.</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- contact info cards -->
+                    <div class="col-lg-5">
+                        <div class="contact-info-wrap">
+                            <a href="mailto:sobanturk145@gmail.com" class="info-card reveal" data-delay="0">
+                                <span class="info-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+                                </span>
+                                <span class="info-meta">
+                                    <span class="info-label">EMAIL</span>
+                                    <span class="info-value">sobanturk145@gmail.com</span>
+                                </span>
+                            </a>
+
+                            <a href="tel:03089771909" class="info-card reveal" data-delay="100">
+                                <span class="info-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8 10a16 16 0 0 0 6 6l1.3-1.4a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+                                </span>
+                                <span class="info-meta">
+                                    <span class="info-label">PHONE</span>
+                                    <span class="info-value">0308 9771909</span>
+                                </span>
+                            </a>
+
+                            <div class="info-card reveal" data-delay="200">
+                                <span class="info-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </span>
+                                <span class="info-meta">
+                                    <span class="info-label">LOCATION</span>
+                                    <span class="info-value">Karachi, Pakistan</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- form -->
+                    <div class="col-lg-7">
+                        <form class="contact-form reveal" data-delay="150" id="contactForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-field">
+                                        <input type="text" id="fName" name="name" class="form-input" placeholder=" " autocomplete="name" required>
+                                        <label for="fName">Your Name</label>
+                                        <span class="form-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        </span>
+                                        <span class="form-error">Please enter your name</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-field">
+                                        <input type="email" id="fEmail" name="email" class="form-input" placeholder=" " autocomplete="email" required>
+                                        <label for="fEmail">Your Email</label>
+                                        <span class="form-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+                                        </span>
+                                        <span class="form-error">Please enter a valid email</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-field">
+                                        <input type="text" id="fSubject" name="subject" class="form-input" placeholder=" " required>
+                                        <label for="fSubject">Subject</label>
+                                        <span class="form-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                                        </span>
+                                        <span class="form-error">Please enter a subject</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-field">
+                                        <textarea id="fMessage" name="message" class="form-input form-textarea" rows="5" placeholder=" " required></textarea>
+                                        <label for="fMessage">Your Message</label>
+                                        <span class="form-icon form-icon-top" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                        </span>
+                                        <span class="form-error">Please write your message</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-shine btn-send" id="sendBtn">
+                                        <span class="btn-label" id="sendLabel">SEND MESSAGE</span>
+                                        <span class="btn-spinner" aria-hidden="true"></span>
+                                        <svg class="btn-send-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
+                                    </button>
+                                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- 8. HIRE ME CTA                                                -->
+        <!-- ============================================================= -->
+        <section class="cta-section" id="cta" aria-label="Hire me">
+            <div class="container">
+                <div class="cta-box reveal">
+                    <span class="cta-glow cta-glow-1" aria-hidden="true"></span>
+                    <span class="cta-glow cta-glow-2" aria-hidden="true"></span>
+                    <span class="cta-code" aria-hidden="true">&lt;/&gt;</span>
+                    <h2 class="cta-title">HAVE A PROJECT IN MIND?</h2>
+                    <p class="cta-text">Let's build something amazing together.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg btn-shine btn-cta">HIRE ME</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================= -->
+    <!-- 9. FOOTER                                                     -->
+    <!-- ============================================================= -->
+    <footer class="footer">
+        <span class="footer-watermark" aria-hidden="true">SOBAN AHMAD</span>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="logo-mark" aria-hidden="true">
+                        <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#60a5fa"/>
+                                    <stop offset=".5" stop-color="#a78bfa"/>
+                                    <stop offset="1" stop-color="#22d3ee"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M9.6 5.5 4.6 12l5 6.5" stroke="url(#footerLogoGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12.8 4.5 13.2 19.5" stroke="url(#footerLogoGrad)" stroke-width="2.4" stroke-linecap="round"/>
+                            <path d="m14.4 5.5 5 6.5-5 6.5" stroke="url(#footerLogoGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="footer-brand-meta">
+                        <span class="footer-logo-name">SOBAN AHMAD</span>
+                        <span class="footer-logo-role">WEB DEVELOPER</span>
+                    </span>
+                </div>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="footer-social">
+                    <!-- Replace # with your real profile URLs -->
+                    <a href="#" class="social-link" aria-label="GitHub profile (replace link)" title="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 2.5-.34c.85 0 1.7.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/soban-ahmad-95b350426" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn profile" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.05h4.56V23H.22V8.05zM8.34 8.05h4.37v2.04h.06c.61-1.16 2.11-2.38 4.34-2.38 4.64 0 5.5 3.05 5.5 7.02V23h-4.55v-7.47c0-1.78-.03-4.07-2.48-4.07-2.48 0-2.86 1.94-2.86 3.94V23H8.34V8.05z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Soban Ahmad. All Rights Reserved.</p>
+                <p class="footer-credit">Designed &amp; built with HTML • CSS • JavaScript • Bootstrap • jQuery</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================= -->
+    <!-- 10. BACK TO TOP                                               -->
+    <!-- ============================================================= -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg class="top-progress" viewBox="0 0 36 36" aria-hidden="true">
+            <circle class="top-track" cx="18" cy="18" r="16" fill="none"></circle>
+            <circle class="top-ring" id="topRing" cx="18" cy="18" r="16" fill="none"></circle>
+        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4"/><path d="m6 10 6-6 6 6"/></svg>
+    </button>
+
+    <!-- ============================================================= -->
+    <!-- PROJECT DETAIL MODAL (populated by JavaScript)                -->
+    <!-- ============================================================= -->
+    <div class="modal fade project-modal" id="projectModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+                <div class="modal-body">
+                    <div class="modal-media">
+                        <img src="" alt="Project preview" class="modal-img" id="modalImg">
+                    </div>
+                    <div class="modal-info">
+                        <span class="modal-number" id="modalNumber"></span>
+                        <h3 class="modal-title" id="modalTitle">Project</h3>
+                        <p class="modal-desc" id="modalDesc"></p>
+                        <p class="modal-tech" id="modalTech"></p>
+                        <div class="modal-links">
+                            <a href="#" target="_blank" rel="noopener" class="btn btn-glow" id="modalLive">LIVE DEMO</a>
+                            <a href="#" target="_blank" rel="noopener" class="btn btn-outline" id="modalGithub">GITHUB</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- SCRIPTS                                                       -->
+    <!-- ============================================================= -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
