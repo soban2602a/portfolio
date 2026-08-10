@@ -62,6 +62,19 @@
     /* Skill progress values — edit data-progress in index.html to
        change bar widths/percentages. */
 
+    /* run a scroll callback at most once per frame (cheap on mobile) */
+    function rafThrottle(fn) {
+        var ticking = false;
+        return function () {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+                ticking = false;
+                fn();
+            });
+        };
+    }
+
     /* =========================================================
        2. LOADER — fast, uses page ready state
        ========================================================= */
@@ -188,7 +201,7 @@
         var $wrap = $('#bgParticles');
         if (!$wrap.length || REDUCED) return;
 
-        var count = IS_FINE_POINTER ? 26 : 14;
+        var count = IS_FINE_POINTER ? 26 : (window.innerWidth < 768 ? 0 : 14);
 
         for (var i = 0; i < count; i++) {
             var el = document.createElement('i');
@@ -308,7 +321,7 @@
             });
         }
 
-        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('scroll', rafThrottle(onScroll), { passive: true });
         onScroll();
 
         /* close the mobile menu after clicking a link */
@@ -701,7 +714,7 @@
             }
         }
 
-        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('scroll', rafThrottle(update), { passive: true });
         window.addEventListener('resize', update, { passive: true });
         update();
 
@@ -723,7 +736,7 @@
             $bar.css('width', p + '%');
         }
 
-        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('scroll', rafThrottle(update), { passive: true });
         window.addEventListener('resize', update, { passive: true });
         update();
     }

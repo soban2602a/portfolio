@@ -3045,3 +3045,37 @@ main {
         transition: none;
     }
 }
+
+/* =========================================================
+   MOBILE PERFORMANCE — cheaper rendering on small screens
+   (backdrop blur + continuous animations freeze low-end phones)
+   ========================================================= */
+@media (max-width: 767.98px) {
+
+    /* backdrop-filter is the most expensive effect on phones — drop it */
+    * {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    /* keep the navbar opaque so it still reads well without blur */
+    .main-nav { background: rgba(9, 14, 27, .97); }
+    .main-nav.scrolled { background: rgba(11, 17, 32, .97); }
+
+    /* stop continuous animations that eat GPU time */
+    .blob,
+    .particles i,
+    .hero-img-wrap,
+    .float-chip,
+    .marquee-track,
+    .badge-dot,
+    .si-arrow,
+    .hero-text-spinner,
+    .cta-glow-1,
+    .cta-glow-2,
+    .btn-primary,
+    .btn-nav-hire,
+    .btn-glow {
+        animation: none !important;
+    }
+}
