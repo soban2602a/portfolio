@@ -2518,6 +2518,20 @@ main {
         padding: 7px 11px;
     }
 
+    .loader-name {
+        font-size: clamp(1.5rem, 8vw, 2.2rem);
+        letter-spacing: .04em;
+    }
+
+    .hero-name {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+    }
+
+    .footer-watermark {
+        font-size: clamp(2.2rem, 11vw, 3.5rem);
+        letter-spacing: .04em;
+    }
+
     .deco-1 { width: 400px; height: 400px; }
     .deco-2 { width: 300px; height: 300px; }
 
@@ -2866,10 +2880,14 @@ main {
     .marquee-track,
     .badge-dot,
     .si-arrow,
-    .hero-text-spinner,
     .btn-primary,
     .btn-nav-hire,
     .btn-glow {
         animation: none !important;
+    }
+
+    /* spinning badge text is pointless on small screens */
+    .hero-text-spinner {
+        display: none;
     }
 }
