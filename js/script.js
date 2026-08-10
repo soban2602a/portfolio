@@ -195,31 +195,6 @@
     }
 
     /* =========================================================
-       3. BACKGROUND PARTICLES
-       ========================================================= */
-    function initParticles() {
-        var $wrap = $('#bgParticles');
-        if (!$wrap.length || REDUCED) return;
-
-        var count = IS_FINE_POINTER ? 26 : (window.innerWidth < 768 ? 0 : 14);
-
-        for (var i = 0; i < count; i++) {
-            var el = document.createElement('i');
-            var size = 2 + Math.random() * 4;
-            var duration = 14 + Math.random() * 18;
-            var delay = Math.random() * 16;
-            var left = Math.random() * 100;
-
-            el.style.cssText = 'left:' + left + '%;' +
-                'width:' + size + 'px;height:' + size + 'px;' +
-                'animation-duration:' + duration + 's;' +
-                'animation-delay:' + delay + 's;' +
-                'opacity:0;';
-            $wrap.append(el);
-        }
-    }
-
-    /* =========================================================
        4. CUSTOM CURSOR (desktop only)
        ========================================================= */
     function initCursor() {
@@ -895,7 +870,6 @@
        ========================================================= */
     $(function () {
         initLoader();
-        initParticles();
         initCursor();
         initNavbar();
         initHeroName();
