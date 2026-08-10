@@ -397,7 +397,6 @@ main {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
     opacity: .32;
     will-change: transform;
 }
@@ -407,7 +406,7 @@ main {
     height: 520px;
     top: -180px;
     left: -160px;
-    background: var(--blue);
+    background: radial-gradient(circle, rgba(59, 130, 246, .6) 0%, rgba(59, 130, 246, 0) 70%);
     animation: blobDrift 22s ease-in-out infinite alternate;
 }
 
@@ -416,7 +415,7 @@ main {
     height: 460px;
     top: 30%;
     right: -180px;
-    background: var(--purple);
+    background: radial-gradient(circle, rgba(139, 92, 246, .55) 0%, rgba(139, 92, 246, 0) 70%);
     animation: blobDrift 26s ease-in-out infinite alternate-reverse;
 }
 
@@ -425,7 +424,7 @@ main {
     height: 420px;
     bottom: -160px;
     left: 28%;
-    background: var(--cyan);
+    background: radial-gradient(circle, rgba(34, 211, 238, .5) 0%, rgba(34, 211, 238, 0) 70%);
     opacity: .22;
     animation: blobDrift 24s ease-in-out infinite alternate;
 }
@@ -506,8 +505,8 @@ main {
 .main-nav {
     min-height: var(--nav-h);
     background: rgba(9, 14, 27, .88);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     padding-top: 12px;
     padding-bottom: 12px;
@@ -524,8 +523,8 @@ main {
 /* glassmorphism once scrolled */
 .main-nav.scrolled {
     background: rgba(11, 17, 32, .72);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     box-shadow: 0 8px 32px rgba(0, 0, 0, .45);
     padding-top: 6px;
@@ -1268,7 +1267,7 @@ main {
     inset: -14px;
     border-radius: 40px;
     background: conic-gradient(from 0deg, var(--blue), var(--purple), var(--cyan), var(--blue));
-    filter: blur(14px);
+    filter: blur(8px);
     opacity: .7;
     z-index: 0;
     animation: ringPulse 4.5s ease-in-out infinite;
@@ -2166,14 +2165,12 @@ main {
     -webkit-mask-composite: xor;
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     mask-composite: exclude;
-    animation: gradShift 6s ease infinite;
     pointer-events: none;
 }
 
 .cta-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
     pointer-events: none;
 }
 
@@ -2182,7 +2179,7 @@ main {
     height: 320px;
     top: -120px;
     left: -80px;
-    background: var(--blue);
+    background: radial-gradient(circle, rgba(59, 130, 246, .4) 0%, rgba(59, 130, 246, 0) 70%);
     opacity: .35;
     animation: blobDrift 12s ease-in-out infinite;
 }
@@ -2192,7 +2189,7 @@ main {
     height: 300px;
     bottom: -120px;
     right: -80px;
-    background: var(--purple);
+    background: radial-gradient(circle, rgba(139, 92, 246, .4) 0%, rgba(139, 92, 246, 0) 70%);
     opacity: .35;
     animation: blobDrift 14s ease-in-out infinite reverse;
 }
@@ -2941,7 +2938,6 @@ main {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: titleShimmer 8s linear infinite;
 }
 
 @keyframes titleShimmer {
