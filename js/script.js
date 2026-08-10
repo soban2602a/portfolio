@@ -767,28 +767,7 @@
     }
 
     /* =========================================================
-       15. PROJECT FILTER — jQuery toggle + CSS transitions
-       ========================================================= */
-    function initProjectFilter() {
-        var $bar = $('.filter-bar');
-        if (!$bar.length) return;
-
-        $bar.on('click', '.filter-btn', function () {
-            var $btn = $(this);
-            $bar.find('.filter-btn').removeClass('active');
-            $btn.addClass('active');
-
-            var filter = $btn.data('filter');
-
-            $('.project-col').each(function () {
-                var show = (filter === 'all') || ($(this).data('category') === filter);
-                $(this).toggleClass('hidden', !show);
-            });
-        });
-    }
-
-    /* =========================================================
-       16. CTA TILT — subtle 3D tilt on the hire-me box
+       15. CTA TILT — subtle 3D tilt on the hire-me box
        ========================================================= */
     function initCtaTilt() {
         var $box = $('.cta-box');
@@ -882,7 +861,6 @@
         initBackToTop();
         initScrollProgress();
         initTypewriter();
-        initProjectFilter();
         initCtaTilt();
         initSmoothScroll();
         initCvDownload();

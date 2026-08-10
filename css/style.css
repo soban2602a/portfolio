@@ -2606,61 +2606,9 @@ main {
     animation: none;
 }
 
-/* --- project filter --- */
-.filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: -22px auto 46px;
-    max-width: 640px;
-}
-
-.filter-btn {
-    font-family: var(--font-mono);
-    font-size: .72rem;
-    letter-spacing: .16em;
-    color: var(--muted);
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 9px 20px;
-    cursor: pointer;
-    transition: color .3s, background .3s, border-color .3s, box-shadow .3s,
-                transform .3s var(--ease-spring);
-}
-
-.filter-btn:hover {
-    color: #fff;
-    border-color: var(--cyan);
-    transform: translateY(-2px);
-}
-
-.filter-btn.active {
-    color: #fff;
-    background: var(--grad);
-    background-size: 200% 200%;
-    border-color: transparent;
-    box-shadow: 0 6px 20px rgba(139, 92, 246, .5);
-    animation: gradShift 5s ease infinite;
-}
-
 .project-col {
     transition: opacity .5s var(--ease-out), transform .5s var(--ease-out),
                 max-height .5s var(--ease-out);
-}
-
-.project-col.hidden {
-    opacity: 0;
-    transform: scale(.88);
-    max-height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    pointer-events: none;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
 }
 
 /* --- tech marquee --- */
