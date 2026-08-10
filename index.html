@@ -17,7 +17,7 @@
     <meta property="og:title" content="Soban Ahmad | Web Developer">
     <meta property="og:description" content="Modern, responsive and user-friendly web experiences built with HTML, CSS, JavaScript, Bootstrap and jQuery.">
     <meta property="og:image" content="images/profile.jpg">
-    <meta name="theme-color" content="#050816">
+    <meta name="theme-color" content="#fbf2e9">
 
     <!-- ============ Structured data (JSON-LD) ============ -->
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
     </script>
 
     <!-- Favicon (inline SVG, no extra file needed) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B82F6'/%3E%3Cstop offset='.5' stop-color='%238B5CF6'/%3E%3Cstop offset='1' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230B1120'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='bold' text-anchor='middle' fill='url(%23g)'%3ES%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e11d48'/%3E%3Cstop offset='.5' stop-color='%23f97316'/%3E%3Cstop offset='1' stop-color='%23f59e0b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23452a3a'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='bold' text-anchor='middle' fill='url(%23g)'%3ES%3C/text%3E%3C/svg%3E">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
     <!-- Custom styles -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 
 <body>
@@ -60,11 +60,84 @@
     <!-- ============================================================= -->
     <div class="loader" id="loader" role="status" aria-label="Loading website">
         <div class="loader-inner">
-            <div class="loader-name-wrap">
-                <h1 class="loader-name" aria-label="Soban Ahmad">
-                    <span class="loader-type" id="loaderType"></span>
-                    <span class="loader-caret" aria-hidden="true"></span>
-                </h1>
+            <div class="loader-chip" aria-hidden="true">
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="loaderChipGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#7a4a5f"></stop>
+                            <stop offset="100%" stop-color="#452a3a"></stop>
+                        </linearGradient>
+                        <linearGradient id="loaderTextGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#fff5ee"></stop>
+                            <stop offset="100%" stop-color="#f1c9a6"></stop>
+                        </linearGradient>
+                        <linearGradient id="loaderPinGrad" x1="1" y1="0" x2="0" y2="0">
+                            <stop offset="0%" stop-color="#e0a96d"></stop>
+                            <stop offset="50%" stop-color="#c08a5e"></stop>
+                            <stop offset="100%" stop-color="#9a6a44"></stop>
+                        </linearGradient>
+                    </defs>
+
+                    <g>
+                        <path d="M100 100 H200 V210 H326" class="trace-bg"></path>
+                        <path d="M100 100 H200 V210 H326" class="trace-flow tl-violet"></path>
+
+                        <path d="M80 180 H180 V230 H326" class="trace-bg"></path>
+                        <path d="M80 180 H180 V230 H326" class="trace-flow tl-rose"></path>
+
+                        <path d="M60 260 H150 V250 H326" class="trace-bg"></path>
+                        <path d="M60 260 H150 V250 H326" class="trace-flow tl-amber"></path>
+
+                        <path d="M100 350 H200 V270 H326" class="trace-bg"></path>
+                        <path d="M100 350 H200 V270 H326" class="trace-flow tl-orange"></path>
+
+                        <path d="M700 90 H560 V210 H474" class="trace-bg"></path>
+                        <path d="M700 90 H560 V210 H474" class="trace-flow tl-rose"></path>
+
+                        <path d="M740 160 H580 V230 H474" class="trace-bg"></path>
+                        <path d="M740 160 H580 V230 H474" class="trace-flow tl-orange"></path>
+
+                        <path d="M720 250 H590 V250 H474" class="trace-bg"></path>
+                        <path d="M720 250 H590 V250 H474" class="trace-flow tl-deep"></path>
+
+                        <path d="M680 340 H570 V270 H474" class="trace-bg"></path>
+                        <path d="M680 340 H570 V270 H474" class="trace-flow tl-amber"></path>
+                    </g>
+
+                    <rect x="330" y="190" width="140" height="100" rx="20" ry="20"
+                        fill="url(#loaderChipGrad)" stroke="#f59e0b" stroke-width="3"
+                        filter="drop-shadow(0 0 6px rgba(69, 42, 58, .55))"></rect>
+
+                    <g>
+                        <rect x="322" y="205" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                        <rect x="322" y="225" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                        <rect x="322" y="245" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                        <rect x="322" y="265" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                    </g>
+
+                    <g>
+                        <rect x="470" y="205" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                        <rect x="470" y="225" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                        <rect x="470" y="245" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                        <rect x="470" y="265" width="8" height="10" fill="url(#loaderPinGrad)" rx="2"></rect>
+                    </g>
+
+                    <text x="400" y="240" font-family="'Space Mono','JetBrains Mono',Consolas,monospace"
+                        font-size="20" fill="url(#loaderTextGrad)" text-anchor="middle"
+                        dominant-baseline="middle" alignment-baseline="middle" font-weight="bold" letter-spacing="4">
+                        LOADING
+                    </text>
+
+                    <circle cx="100" cy="100" r="5" fill="#452a3a"></circle>
+                    <circle cx="80" cy="180" r="5" fill="#452a3a"></circle>
+                    <circle cx="60" cy="260" r="5" fill="#452a3a"></circle>
+                    <circle cx="100" cy="350" r="5" fill="#452a3a"></circle>
+
+                    <circle cx="700" cy="90" r="5" fill="#452a3a"></circle>
+                    <circle cx="740" cy="160" r="5" fill="#452a3a"></circle>
+                    <circle cx="720" cy="250" r="5" fill="#452a3a"></circle>
+                    <circle cx="680" cy="340" r="5" fill="#452a3a"></circle>
+                </svg>
             </div>
 
             <p class="loader-role">WEB DEVELOPER</p>
@@ -95,9 +168,9 @@
                     <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="navLogoGrad" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#60a5fa"/>
-                                <stop offset=".5" stop-color="#a78bfa"/>
-                                <stop offset="1" stop-color="#22d3ee"/>
+                                <stop offset="0" stop-color="#e11d48"/>
+                                <stop offset=".5" stop-color="#f97316"/>
+                                <stop offset="1" stop-color="#f59e0b"/>
                             </linearGradient>
                         </defs>
                         <path d="M9.6 5.5 4.6 12l5 6.5" stroke="url(#navLogoGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -107,7 +180,7 @@
                     <span class="logo-shine"></span>
                 </span>
                 <span class="logo-text">
-                    <span class="logo-name">SOBAN AHMAD</span>
+                    <span class="logo-name"><span class="logo-port">PORT</span><span class="logo-folio">FOLIO</span></span>
                     <span class="logo-role">WEB DEVELOPER</span>
                 </span>
             </a>
@@ -143,7 +216,6 @@
                     <!-- Left: intro text -->
                     <div class="col-lg-6 hero-content">
                         <p class="hero-greeting reveal" data-delay="0">
-                            <span class="greet-line" aria-hidden="true"></span>
                             <span class="greet-text">HI, I'M</span>
                         </p>
 
@@ -200,8 +272,8 @@
                         <!-- profile image with 3D tilt -->
                         <div class="hero-img-wrap tilt" id="heroImgWrap">
                             <div class="hero-img-ring" aria-hidden="true"></div>
-                            <img src="./images/profile.png" alt="Soban Ahmad — Web Developer profile picture"
-                                class="hero-img" id="heroImg" width="835" height="1030" fetchpriority="high" decoding="async">
+                            <img src="./images/profile.jpg" alt="Soban Ahmad — Web Developer profile picture"
+                                class="hero-img" id="heroImg" width="500" height="617" fetchpriority="high" decoding="async">
                             <div class="hero-text-spinner" aria-hidden="true">
                                 <svg viewBox="0 0 100 100">
                                     <defs>
@@ -235,7 +307,7 @@
         <section class="section projects-section" id="projects" aria-labelledby="projectsTitle">
             <div class="container">
                 <div class="section-head reveal">
-                    <span class="section-tag">PORTFOLIO</span>
+                    <span class="section-tag"><span class="tag-port">PORT</span><span class="tag-folio">FOLIO</span></span>
                     <h2 class="section-title" id="projectsTitle">MY <span class="gradient-text">PROJECTS</span></h2>
                     <p class="section-sub">Some of my recent work</p>
                 </div>
@@ -246,7 +318,7 @@
                     <div class="col-md-6 col-lg-4 reveal project-col" data-category="landing" data-delay="0">
                         <article class="project-card" data-index="0" tabindex="0" aria-label="Project 1 — Brightworld LED Lights">
                             <div class="project-media">
-                                <img src="images/BRIGHTWORLD-LED-LIGHTS.png" alt="Brightworld LED Lights project preview" class="project-img" loading="lazy" width="900" height="640">
+                                <img src="images/BRIGHTWORLD-LED-LIGHTS.png" alt="Brightworld LED Lights project preview" class="project-img" loading="lazy" width="1200" height="675">
                                 <div class="project-overlay">
                                     <span class="overlay-hint">CLICK TO VIEW</span>
                                     <span class="overlay-icon" aria-hidden="true">
@@ -271,7 +343,7 @@
                     <div class="col-md-6 col-lg-4 reveal project-col" data-category="dashboard" data-delay="150">
                         <article class="project-card" data-index="1" tabindex="0" aria-label="Project 2 — Infinity Watches">
                             <div class="project-media">
-                                <img src="images/infinity-watches.png" alt="Infinity Watches project preview" class="project-img" loading="lazy" width="900" height="640">
+                                <img src="images/infinity-watches.png" alt="Infinity Watches project preview" class="project-img" loading="lazy" width="1200" height="675">
                                 <div class="project-overlay">
                                     <span class="overlay-hint">CLICK TO VIEW</span>
                                     <span class="overlay-icon" aria-hidden="true">
@@ -504,7 +576,7 @@
                         <div class="about-visual">
                             <div class="about-frame" aria-hidden="true"></div>
                         <div class="about-img-wrap reveal" data-anim="scale">
-                            <img src="./images/profile.png" alt="Soban Ahmad working as a Web Developer" class="about-img" loading="lazy" width="640" height="640">
+                            <img src="./images/profile.jpg" alt="Soban Ahmad working as a Web Developer" class="about-img" loading="lazy" width="500" height="617">
                         </div>
                             <div class="about-badge" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v6c0 5-3.8 8.5-9 9-5.2-.5-9-4-9-9V7l9-5z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -686,9 +758,9 @@
                         <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0" stop-color="#60a5fa"/>
-                                    <stop offset=".5" stop-color="#a78bfa"/>
-                                    <stop offset="1" stop-color="#22d3ee"/>
+                                    <stop offset="0" stop-color="#e11d48"/>
+                                    <stop offset=".5" stop-color="#f97316"/>
+                                    <stop offset="1" stop-color="#f59e0b"/>
                                 </linearGradient>
                             </defs>
                             <path d="M9.6 5.5 4.6 12l5 6.5" stroke="url(#footerLogoGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -750,7 +822,7 @@
                 </button>
                 <div class="modal-body">
                     <div class="modal-media">
-                        <img src="" alt="Project preview" class="modal-img" id="modalImg">
+                        <img alt="Project preview" class="modal-img" id="modalImg">
                     </div>
                     <div class="modal-info">
                         <span class="modal-number" id="modalNumber"></span>

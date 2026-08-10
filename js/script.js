@@ -96,34 +96,6 @@
             [100, 'ALMOST THERE']
         ];
 
-        /* type "SOBAN AHMAD" letter by letter */
-        function typeName() {
-            var $type = $('#loaderType');
-            if (!$type.length) return;
-
-            var text = 'SOBAN AHMAD';
-            var i = 0;
-
-            function next() {
-                if (i >= text.length) return;
-                var ch = text.charAt(i);
-                var s = document.createElement('span');
-                if (ch === ' ') {
-                    s.className = 'loader-type-space';
-                    $type.append(s);
-                    i++;
-                    setTimeout(next, 300);
-                } else {
-                    s.className = 'loader-type-char';
-                    s.textContent = ch;
-                    $type.append(s);
-                    i++;
-                    setTimeout(next, 100);
-                }
-            }
-            next();
-        }
-
         function updateProgress(p) {
             if (el) {
                 el.style.width = p + '%';
@@ -145,11 +117,15 @@
             clearInterval(tick);
             $('body').removeClass('no-scroll');
             if (!$loader.length) return;
-            $loader.addClass('done');
+
+            /* reveal the page first, then fade the loader out on top of it */
             window.dispatchEvent(new CustomEvent('loader:done'));
             setTimeout(function () {
-                $loader.css('display', 'none');
-            }, 650);
+                $loader.addClass('done');
+                setTimeout(function () {
+                    $loader.css('display', 'none');
+                }, 650);
+            }, 300);
         }
 
         /* fill 0 -> 100 smoothly over ~1.4s */
@@ -169,8 +145,6 @@
             }, 30);
         }
 
-        typeName();
-
         window.addEventListener('load', function () {
             loaded = true;
             startCounting();
@@ -185,10 +159,6 @@
 
         /* reduced-motion: skip the animations entirely */
         if (REDUCED) {
-            var $type = $('#loaderType');
-            if ($type.length) {
-                $type.text('SOBAN AHMAD');
-            }
             updateProgress(100);
             finish();
         }
@@ -354,7 +324,7 @@
                 } else {
                     html += '<span class="letter" style="animation-delay:' + delay + 'ms">' + ch + '</span>';
                 }
-                delay += 55;
+                delay += 28;
             }
 
             $name.html(html);
@@ -728,9 +698,37 @@
         var index = 0;
         var char = 0;
         var deleting = false;
+        var timer = null;
 
-        /* clear the static HTML text so typing starts clean */
-        $el.text('');
+        /* mobile keeps one static role — no typing / no backspace */
+        var mqMobile = window.matchMedia('(max-width: 767px)');
+        if (mqMobile.addEventListener) {
+            mqMobile.addEventListener('change', boot);
+        } else if (mqMobile.addListener) {
+            mqMobile.addListener(boot);
+        }
+        boot();
+
+        function boot() {
+            if (timer) { clearTimeout(timer); timer = null; }
+
+            if (mqMobile.matches) {
+                $el.text(roles[0]);
+                return;
+            }
+
+            /* desktop: start typing cleanly from scratch */
+            $el.text('');
+            index = 0;
+            char = 0;
+            deleting = false;
+
+            onLoaderDone(function () {
+                if (!mqMobile.matches) {
+                    timer = setTimeout(tick, 400);
+                }
+            });
+        }
 
         function tick() {
             var word = roles[index];
@@ -758,12 +756,8 @@
                 speed = 2000 / word.length; /* backspace whole word in 2s */
             }
 
-            setTimeout(tick, speed);
+            timer = setTimeout(tick, speed);
         }
-
-        onLoaderDone(function () {
-            setTimeout(tick, 400);
-        });
     }
 
     /* =========================================================
