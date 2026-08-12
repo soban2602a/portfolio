@@ -128,11 +128,11 @@
             }, 300);
         }
 
-        /* fill 0 -> 100 smoothly over ~1.4s */
+        /* fill 0 -> 100 smoothly over ~2.6s */
         function startCounting() {
             if (tick) return;
             var start = performance.now();
-            var duration = 1400;
+            var duration = 2600;
             tick = setInterval(function () {
                 var p = Math.round(((performance.now() - start) / duration) * 100);
                 if (p >= 100) p = 100;
